@@ -1,0 +1,246 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	    
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+	<!-- Meta tags -->
+	<title>Realbuild a Realestate Category Flat Bootstrap Responsive Website | Home :: w3layouts</title>
+	<meta name="keywords" content="Realbuild a Realestate Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,700i,800,900" rel="stylesheet">
+	<!-- scripts -->
+	<script src="../static/js/jquery.min.js"></script>
+</head>
+
+<body>
+	<div>
+		<video class="video" muted="muted" loop="loop" autoplay="autoplay" style="height:250px;">
+			<source src="../static/video/real2.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+
+		<canvas style="max-height:250px;" class="canvas"></canvas>
+
+		<div id="over_video" style="max-height:250px;">
+			<div class="bg-mask">
+				<nav class="navbar w3-navbar">
+					<div class="navigation-overlay">
+						<div class="container-fluid">
+							<div class="nav-top">
+								<div class="w3-contact">
+									
+								</div>
+								<div class="w3-socials">
+									
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+
+									<!-- Logo -->
+									<div class="logo-container">
+										<div class="logo-wrap">
+											<a href="#home" class="scroll">
+												Realbuild
+											</a>
+										</div>
+									</div>
+								</div> <!-- end navbar-header -->
+
+
+								<div class="col-md-8 col-xs-12 nav-wrap">
+									<div class="collapse text-center navbar-collapse w3ls-nav navbar-collapse">
+
+										<ul class="nav navbar-nav w3ls-nav1 text-center">
+
+											<li>
+												<a href="/shophome" >Home</a>
+											</li>
+											<li>
+												<a href="/product" >Add Product</a>
+											</li>
+											<li>
+												<a href="/viewbooking" >Booking</a>
+											</li>
+											
+											
+											<li>
+												<a href="/login" >Logout</a>
+											</li>
+											
+
+										</ul>
+									</div>
+								</div> <!-- end col -->
+							</div> <!-- end row -->
+						</div> <!-- end container -->
+					</div> <!-- end navigation -->
+				</nav> <!-- end navbar -->
+
+				
+
+			</div>
+		</div>
+	</div>
+	<style>
+		.video-responsive {
+			padding-bottom: 750px;
+			position: relative;
+			width: 100%;
+		}
+
+		.canvas,
+		.video {
+			left: 0;
+			position: absolute;
+			top: 0;
+			background: #000;
+			z-index: 5;
+			overflow: hidden;
+			width: 100%;
+			
+			object-fit: cover;
+		}
+
+		#over_video {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			top: 0;
+			z-index: 10;
+			color: #FFF;
+		}
+		@media screen and (max-width: 1280px) {
+			.video-responsive {
+				padding-bottom: 650px;
+			}
+			
+		}
+		@media screen and (max-width: 1080px) {
+			.video-responsive {
+				padding-bottom: 600px;
+			}
+			
+		}
+		@media screen and (max-width: 568px) {
+			.video-responsive {
+				padding-bottom: 550px;
+			}
+			
+		}
+	</style>
+
+	<script src="../static/js/canvas-video-player.js"></script>
+
+
+	<script>
+		var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+
+		if (isIOS) {
+
+			var canvasVideo = new CanvasVideoPlayer({
+				videoSelector: '.video',
+				canvasSelector: '.canvas',
+				timelineSelector: false,
+				autoplay: true,
+				makeLoop: true,
+				pauseOnClick: false,
+				audio: false
+			});
+
+		} else {
+
+			// Use HTML5 video
+			document.querySelectorAll('.canvas')[0].style.display = 'none';
+
+		}
+	</script>
+
+	<div style="margin-top: 300px;">
+    {% block content %}
+
+    {% endblock %}
+</div>
+	<!-- //contact -->
+	<!-- copyright -->
+	<div class="agileits-w3layouts">
+		<div class="container">
+			<p>© 2017 Realbuild. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+	</div>
+	<!-- //copyright -->
+	<!-- scripts -->
+
+	<script src="../static/js/bootstrap.min.js"></script>
+
+
+	<!-- smooth scrolling -->
+	<script src="../static/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="../static/js/move-top.js"></script>
+	<script type="text/javascript" src="../static/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //here ends scrolling icon -->
+	<!-- smooth scrolling -->
+
+	<!-- scrolling script -->
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //scrolling script -->
+
+</body>
+
+</html>

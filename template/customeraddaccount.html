@@ -1,0 +1,93 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<style>
+
+
+    .form{
+
+        margin: auto;
+        width: 500px;
+        border: 2px solid black;
+        margin-top: 50px;
+        background-color: whitesmoke;
+        
+        box-shadow: 10px 10px 5px 5px #888888;
+        margin-bottom: 50px;
+
+    }
+    .form h1{
+        font-weight: bolder;
+    }
+
+    .textbox{
+
+        width: 300px;
+        margin:auto;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    .textbox label{
+        font-weight: bolder;
+        margin: auto;
+    }
+    .textbox input[type="text"],input[type="date"]
+    {
+        width: 300px;
+        height: 35px;
+    }
+    input[type="submit"]
+    {
+        margin: auto;
+        width: 100px;
+        height: 40px;
+        color: white;
+        background-color: tomato;
+        border: none;
+        border-radius: 3px;
+
+    }
+</style>
+
+<div class="form">
+
+
+<form method="post">
+    {% csrf_token %}
+<H1>
+  <center>  CARD DETAILS</center>
+</H1>
+    <div class="textbox">
+        <label>UPI ID </label>
+        <input type="text" name="upi" placeholder="UPI ID">
+    </div>
+    <div class="textbox">
+        <label>CARD NUMBER </label>
+        <input type="text" name="cardno"  pattern="[0-9]+" placeholder="CARD NUMBER">
+    </div>
+    <div class="textbox">
+        <label>CVV NO </label>
+        <input type="text" name="cvv" maxlength="3" minlength="3" pattern="[0-9]+" placeholder="CVV NUMBER">
+    </div>
+    <div class="textbox">
+        <label>EXP Date </label>
+        <input type="date" name="exp" placeholder="EXP : DATE">
+    </div>
+    <div class="textbox">
+        <label>UPI </label>
+        <input type="text" name="upi" placeholder="UPI">
+    </div>
+    <div class="textbox">
+    <center>
+<input type="submit" name="submit"></center>
+</div>
+</form>
+
+    
+</div>
+
+<script>
+var msg="{{msg}}"
+if(msg!="")
+    alert(msg)
+</script>
+{% endblock %}

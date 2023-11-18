@@ -1,0 +1,34 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Quotations</h1>
+    
+    <table border='1' id="customers" >
+        <tr>
+            <th>REQUEST ID</th>
+            <th>ARCHITECT</th>
+            <th>AREA</th>
+            <th colspan="4">ESTIMATED COST</th>
+            
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{d.0}}</td>
+            <td>{{d.1}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td><a style="color: blue;" href="/customerviewplan?id={{d.6}}">View plan</a></td>
+            <td><a style="color: blue;" href="/customerplanupdate?id={{d.5}}&fees={{d.2}}&rid={{d.0}}&status=approved&url=customerviewdesigner&rid={{d.0}}">Approve</a></td>
+            <td><a style="color: blue;" href="/customerplanupdate?id={{d.5}}&status=rejected&url=customerrequirement&rid={{d.0}}">Reject</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

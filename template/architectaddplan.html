@@ -1,0 +1,42 @@
+{% extends 'architectbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Profile</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table style="margin: 50px;" >
+   
+        <tr>
+            <td>Upload your plan</td>
+            <td><input type="file"  class="form-control"  name="txtFile" required ></td>
+        </tr>
+        <tr>
+            <td>Total area in sqft</td>
+            <td><input type="number"  class="form-control"  name="txtSqft" required ></td>
+        </tr>
+        <tr>
+            <td>Estimated cost</td>
+            <td><input type="number"  class="form-control"  name="txtCost" required></td>
+        </tr>
+        <!-- <tr>
+            <td>Fees</td>
+            <td><input type="number"  class="form-control"  name="fees" required></td>
+        </tr> -->
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" class="btn btn-primary"></td>
+        </tr>
+    </table>
+    </form>
+</div>
+<script>
+var msg="{{msg}}"
+if(msg!="")
+    alert(msg)
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'shopbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Profile</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table style="margin: 50px;" >
+        {% for d in data %}
+        <tr>
+            <td colspan="2"><img src="../static{{d.4}}" height="150px" width="150px"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text"  class="form-control" value="{{d.1}}" name="txtName" required pattern="[a-zA-Z ]+"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea name="txtAddress" class="form-control"  required>{{d.2}}</textarea></td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td><input type="text" class="form-control"  value="{{d.3}}" name="txtContact" required pattern="[6789][0-9]{9}"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" class="form-control" readonly value="{{d.5}}" name="txtEmail" required ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" class="form-control"  name="submit" ></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

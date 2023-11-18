@@ -1,0 +1,111 @@
+<html><head>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1/bill_connect-final/assets/card.css">
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		$('input[type="checkbox"]').on('click',function(){
+var selected = $(this).parent().parent().parent();    $(selected).toggleClass('highlight');
+});
+	</script>
+	<link rel="stylesheet" href="http://127.0.0.1/bill_connect-final/assets/style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec3494….ico">
+  <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b….svg" color="#111">
+</head>
+<body style="background-image: url(http://127.0.0.1/bill_connect-main/assets/indexassets/img/bg_hero_2.svg); background-size:cover;" data-new-gr-c-s-check-loaded="14.1038.0" data-gr-ext-installed="">
+	
+	
+  <form method="post" >
+    {% csrf_token %}
+	<div class="wrapper">
+  <div class="row">
+     <a href="">
+    <div class="col-xs-5">
+      <div id="cards">
+        <!-- <img src="http://127.0.0.1/bill_connect-final/assets/pic/Visa-icon.png"> -->
+        <!-- <img src="http://127.0.0.1/bill_connect-final/assets/pic/Master-Card-icon.png"> -->
+      </div><!--#cards end-->
+      <div class="form-check">
+  
+</div>
+    </div><!--col-xs-5 end-->
+  </a>
+    <a href="upipayment?id={{id}}">
+    <div class="col-xs-5">
+      <div id="cards">
+        <!-- <img src="http://127.0.0.1/bill_connect-final/assets/pic/upi.png"> -->
+      </div><!--#cards end-->
+      <div class="form-check">
+  
+</div>
+    </div><!--col-xs-5 end-->
+    </a>
+  </div><!--row end-->
+		
+		<div style="border: 2px solid black; height: 400px; margin-left: 250px; margin-right: 250px; padding-left: 50px;">
+		
+  <center>
+     <p style="color:red;"> </p>
+      <label class="form-check-label" for="paypal" style="color:#12c312;">
+    Pay ₹ {{fees}} with credit card
+  </label>
+</center>
+					 <br> 
+					 <br> 
+					 <br> 
+					  
+	<div class="row">
+	  
+	  
+
+    <div class="col-xs-6">
+				 		</div>
+		
+	
+
+  
+	  
+	  
+
+   
+    <div class="col-xs-5">
+      <i class="fa fa-credit-card-alt"></i>
+      
+    </div><!--col-xs-5-->
+  </div><!--row end-->
+  <div class="row row-three">
+  
+    <div class="col-xs-2">
+      <i class="fa fa-lock"></i>
+      <label for="date">CVV / CVC *</label>
+      <input type="text" name="cvv">
+      <br>
+      <br>
+    </div><!--col-xs-3-->
+    <div class="col-xs-5">
+      <span class="small">* CVV or CVC is the card security code, unique three digits number on the back of your card seperate from its number.</span>
+    </div><!--col-xs-6 end-->
+  </div><!--row end-->
+  <br>
+ 
+  <footer>
+    <input type="hidden" name="amt" value="">
+
+   
+    <button type="submit" style="width: 100px; height: 40px; border: none; background-color: #12c312;" class="btn">Pay ₹
+  </button></footer>
+
+</div><!--wrapper end-->
+</form>
+	
+</div>
+	
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+
+{% if msg %}
+
+<script>
+  alert("{{msg}}")
+</script>
+
+{% endif %}

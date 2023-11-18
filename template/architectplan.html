@@ -1,0 +1,44 @@
+{% extends 'architectbase.html' %}
+{% block content %}
+<style>
+    th,td{
+        padding: 10px;
+    }
+    th{
+        background-color: lightseagreen;
+        color: white;
+    }
+    </style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">My Plan Status</h1>
+   
+   <table border="1" >
+    <tr>
+        <th>REQUEST ID</th>
+        <th>CUSTOMER</th>
+        <th>AREA</th>
+        <th>ESTIMATED COST</th>
+        <th>STATUS</th>
+        <th>View Plan</th>
+        
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.0}}</td>
+        <td>{{d.1}}</td>
+        <td>{{d.2}}</td>
+        <td>{{d.3}}</td>
+        <td>{{d.4}}</td>
+        <td><a style="color: blue;" href="/archviewplan?id={{d.5}}">View Plan</a></td>
+
+        
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

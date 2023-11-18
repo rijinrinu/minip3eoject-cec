@@ -1,0 +1,64 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Requirement</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table style="margin: 50px;" >
+        
+        <tr>
+            <td>Number of bedroom</td>
+            <td><input type="text"  class="form-control" value="{{data.2}}" name="t1" required ></td>
+        </tr>
+        <tr>
+            <td>Number of bathroom</td>
+            <td><input type="text"  class="form-control" value="{{data.3}}" name="t2" required ></td>
+        </tr>
+        <tr>
+            <td>Number of attached bathroom</td>
+            <td><input type="text"  class="form-control" value="{{data.4}}" name="t3" required ></td>
+        </tr>
+        <tr>
+            <td>Do you need carporch</td>
+            <td>
+            <input type="text"  class="form-control" value="{{data.5}}" name="t4" required >
+            </td>
+        </tr>
+        <tr>
+            <td>Number of kitchen</td>
+            <td><input type="text"  class="form-control" value="{{data.6}}" name="t5" required ></td>
+        </tr>
+        <tr>
+            <td>Do you need sitout</td>
+            <td>
+               <input type="text"  class="form-control" value="{{data.7}}" name="t6" required></td>
+          
+        </tr>
+        <tr>
+            <td>Do you need work area</td>
+            <td>
+                <input type="text"  class="form-control" value="{{data.8}}" name="t7" required ></td>
+           
+        </tr>
+        <tr>
+            <td>Number of floor</td>
+            <td><input type="text"  value="{{data.9}}" class="form-control"  name="t8" required ></td>
+        </tr>
+        <tr>
+            <td>Area in sqft</td>
+            <td><input type="text"  class="form-control" value="{{data.10}}"  name="t9" required ></td>
+        </tr>
+        <tr>
+            <td>Other requirements</td>
+            <td><textarea name="t10" class="form-control" value="{{data.11}}" required>{{data.11}}</textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-primary" value="Submit"></td>
+        </tr>
+    </table>
+    </form>
+    </div>
+
+    {% endblock %}

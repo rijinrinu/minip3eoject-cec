@@ -1,0 +1,49 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<style>
+   #id1 img:hover{
+        width: 100%;
+
+    }
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Products</h1>
+   <table border="1" id="customers" >
+       <tr>
+           <th>Product Name</th>
+           <th>Price</th>
+           <th>Description</th>
+           <th>Shop Name</th>
+           <th>image</th>
+         <th>Quantity</th>
+       </tr>
+       {% for d in data %}
+       <tr>
+           <td>{{d.2}}</td>
+           <td>{{d.3}}</td>
+           <td>{{d.4}}</td>
+           <td>{{d.7}}</td>
+           <td><img src="../static{{d.5}}" height="200px" width="200px">
+             <a style="color: blue;" href="/cview?id={{d.5}}">View</a></td>
+           <td><form method="post">
+            {% csrf_token %}
+               <input type="hidden" name="pid" value="{{d.1}}">
+               <input type="hidden" name="sid" value="{{d.2}}">
+               <input type="text" name="q" placeholder="Enter Quantity Needed" >
+           </td>
+           <td>
+               <input type="submit" name="submit">
+           </form>
+           </td>
+           
+       </tr>
+       {% endfor %}
+   </table>
+   
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

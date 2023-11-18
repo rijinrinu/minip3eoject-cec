@@ -1,0 +1,44 @@
+{% extends 'architectbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Request</h1>
+   
+   <table border="1" id="customers"  >
+    <tr>
+        <th>NAME</th>
+        <th>BEDROOM</th>
+        <th>BATHROOM</th>
+        <th>ATTACHED BATHROOM</th>
+        <th>CARPORCH</th>
+        <th>KITCHEN</th>
+        <th>SIT OUT</th>
+        <th>WORK AREA</th>
+        <th>FLOOR</th>
+        <th>AREA(sqft)</th>
+        <th colspan="2">OTHER REQUIREMENT</th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.14}}</td>
+        <td>{{d.2}}</td>
+        <td>{{d.3}}</td>
+        <td>{{d.4}}</td>
+        <td>{{d.5}}</td>
+        <td>{{d.6}}</td>
+        <td>{{d.7}}</td>
+        <td>{{d.8}}</td>
+        <td>{{d.9}}</td>
+        <td>{{d.10}}</td>
+        <td>{{d.11}}</td>
+        <td><a style="color: blue;" href="/architectaddplan?id={{d.0}}">Add plan</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

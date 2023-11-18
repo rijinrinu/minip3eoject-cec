@@ -1,0 +1,44 @@
+{% extends 'shopbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Product</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table style="margin: 50px;" >
+        <tr>
+            <td>Product Name</td>
+            <td><input type="text" class="form-control" name="txtName" required pattern="[a-zA-Z ]+"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><textarea name="txtAddress" class="form-control" required></textarea></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" class="form-control" pattern="[0-9]+" name="txtContact" required ></td>
+        </tr>
+       
+        <tr>
+            <td>Image</td>
+            <td><input type="file" class="form-control" name="proof" required ></td>
+        </tr>
+       
+       
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Register" class="btn btn-primary"></td>
+        </tr>
+    </table>
+    </form>
+</div>
+<script>
+var msg="{{msg}}"
+if(msg!="")
+    alert(msg)
+</script>
+{% endblock %}

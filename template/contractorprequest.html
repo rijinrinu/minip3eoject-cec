@@ -1,0 +1,36 @@
+{% extends 'contractorbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Work</h1>
+   
+   <table border="1" id="customers"  >
+    <tr>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>CONTACT</th>
+        <th>PLAN</th>
+        <th >AREA</th>
+        <th>VIDEO</th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.0}}</td>
+        <td>{{d.1}}</td>
+        <td>{{d.2}}</td>
+        <td><a href="../static{{d.3}}"><img src="../static{{d.3}}" height="150px" width="150px"></td></a>
+        <td>{{d.4}}</td>
+        <td><a ><video style="height: 150px; width:150px; margin-top: 50px;" muted autoplay="autoplay" controls="controls">
+            <source src="../static{{d.5}}" type="video/mp4">
+        </video></a></td>
+        <!-- <td><a href="/contractorapprove?cemail={{d.7}}"><span style="color: green;">Approve</span></a></td> -->
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

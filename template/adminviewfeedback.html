@@ -1,0 +1,35 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <center>
+    <h1 style="margin: 50px;">Feedback</h1>
+    </center>
+   <table border="1" id="customers" >
+       <tr>
+           <th>NAME</th>
+           <th>ADDRESS</th>
+           <th>CONTACT</th>
+           
+           <th>EMAIL</th>
+         <th>FEEDBACK</th>
+       </tr>
+       {% for d in data %}
+       <tr>
+           <td>{{d.4}}</td>
+           <td>{{d.5}}</td>
+           <td>{{d.6}}</td>
+           <td>{{d.3}}</td>
+           <td>{{d.2}}</td>
+           
+       </tr>
+       {% endfor %}
+   </table>
+   
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

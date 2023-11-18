@@ -1,0 +1,80 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Plans</h1>
+   
+    <table border='1' style="margin-top: 50px;" id="customers" >
+    <tr>
+        <th>ID</th>
+        <th>BEDROOM</th>
+        <th>BATHROOM</th>
+        <th>ATTACHED</th>
+        <th>CARPORCH</th>
+        <th>KITCHEN</th>
+        <th>SITOUT</th>
+        <th>WORKAREA</th>
+        <th>FLOOR</th>
+        <th>AREA(in sqft)</th>
+        <th>DATE</th>
+        <th>OTHERS</th>
+        <th colspan="2">STATUS</th>
+    </tr>
+    {% for d in data1 %}
+    <tr>
+        <td>{{d.0}}</td>
+        <td>{{d.2}}</td>
+        <td>{{d.3}}</td>
+        <td>{{d.4}}</td>
+        <td>{{d.5}}</td>
+        <td>{{d.6}}</td>
+        <td>{{d.7}}</td>
+        <td>{{d.8}}</td>
+        <td>{{d.9}}</td>
+        <td>{{d.10}}</td>
+        <td>{{d.12}}</td>
+        <td>{{d.11}}</td>
+        <td>{{d.13}}</td>
+        <td><a style="color: blue;" href="/customerplan?id={{d.0}}">View Plan</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+
+<center><h1>Approved Plans</h1></center>
+<table border='1' id="customers" >
+    <tr>
+        <th>REQUEST ID</th>
+        <th>ARCHITECT</th>
+        <th>AREA</th>
+        <th>ESTIMATED COST</th>
+        <th>FEES</th>
+        <th>PLAN</th>
+        <th>View</th>
+
+
+        
+    </tr>
+    {% for d in data12 %}
+    <tr>
+        <td>{{d.0}}</td>
+        <td>{{d.1}}</td>
+        <td>{{d.2}}</td>
+        <td>{{d.3}}</td>
+        <td>{{d.7}}</td>
+        <td><img src="static{{d.6}}" width="250px" height="250px"></td>
+        <td><a style="color: blue;" href="/customerviewplan?id={{d.6}}">View Plan</a></td>
+
+
+        <!-- <td><a style="display: inline; font-style: oblique;" href="/payment?amount={{d.7}}">Payment</a></td> -->
+      
+        
+    </tr>
+    {% endfor %}
+</table>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

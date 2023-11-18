@@ -1,0 +1,66 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <center>
+    <h1 style="margin: 50px;">New Designer</h1></center>
+   <table border="1" id="customers" >
+    <tr>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>CONTACT</th>
+        <!-- <th>QUALIFICATION</th>
+        <th>QUALIFICATION PROOF</th> -->
+        <th>EMAIL</th>
+        <th >PHOTO</th>
+        <th>
+            Approve
+        </th>
+        <th>
+            Reject
+        </th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.0}}</td>
+        <td>{{d.1}}</td>
+        <td>{{d.2}}</td>
+        <td>{{d.3}}</td>
+        <td><img src="../static{{d.6}}" height="100px" width="100px" alt="qproof"></td>
+        <!-- <td>{{d.5}}</td>
+        <td><img src="../static{{d.6}}" height="200px" width="200px" alt="photo"></td> -->
+           <td><a href="/adminapproveuser?id={{d.3}}&status=1&url=/admindesigner" style="color:blue">Approve</a></td>
+           <td><a href="/adminapproveuser?id={{d.3}}&status=-1&url=/admindesigner" style="color:blue">Reject</a></td>
+       </tr>
+       {% endfor %}
+   </table>
+   <table border="1" id="customers" style="margin-top: 50px;">
+    <center><h1> Existing Designer</h1> </center>
+    <tr>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>CONTACT</th>
+       
+        <th>EMAIL</th>
+        <th >PHOTO</th>
+    </tr>
+    {% for d in data1 %}
+    <tr>
+        <td>{{d.0}}</td>
+        <td>{{d.1}}</td>
+        <td>{{d.2}}</td>
+        <td>{{d.3}}</td>
+        <td><img src="../static{{d.4}}" height="100px" width="100px" alt="qproof"></td>
+        <td><a href="/deletedesi?email={{d.3}}"><font color="red">DELETE</font></a></td>
+        <!-- <td>{{d.5}}</td>
+        <td><img src="../static{{d.6}}" height="200px" width="200px"></td> -->
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

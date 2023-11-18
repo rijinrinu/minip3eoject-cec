@@ -1,0 +1,45 @@
+{% extends 'contractorbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Contractor</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table style="margin: 50px;" >
+        {% for d in data %}
+        <tr>
+            <td>Name</td>
+            <td><input type="text" class="form-control" name="txtName" value="{{d.0}}"  pattern="[a-zA-Z ]+"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea name="txtAddress" class="form-control" required>{{d.1}}</textarea></td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td><input type="text" class="form-control" name="txtContact" value="{{d.2}}" required pattern="[6789][0-9]{9}"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" readonly class="form-control" name="txtEmail" value="{{d.3}}" required ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="submit" name="submit">
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

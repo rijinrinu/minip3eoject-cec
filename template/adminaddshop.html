@@ -1,0 +1,55 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+th{
+    background-color: lightseagreen;
+    color: white;
+}
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Shop </h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table style="margin: 50px;" >
+        
+        <tr>
+            <td>Shop Name</td>
+            <td><input type="text"  class="form-control"  name="name" pattern="[a-z A-Z]+" required ></td>
+        </tr>
+        <tr>
+            <td>Shop Category</td>
+            <td><input type="text"  class="form-control"  pattern="[a-z A-Z]+"   name="category" required ></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text"  class="form-control"  name="address" required></td>
+        </tr>
+       
+        <tr>
+            <td>Phone No</td>
+            <td><input type="text"  class="form-control" maxlength="10" minlength="10"  name="phoneno" required pattern="[0-9]{10}"></td>
+        </tr>
+        
+       
+        <tr>
+            <td>Email</td>
+            <td><input type="email"  class="form-control"  name="email" required></td>
+        </tr>
+       
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-primary" value="Submit"></td>
+        </tr>
+    </table>
+    </form>
+   
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

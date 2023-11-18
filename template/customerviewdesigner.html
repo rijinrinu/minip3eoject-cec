@@ -1,0 +1,39 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Select Designer</h1>
+   <table border="1" id="customers" >
+       <tr>
+           <th>NAME</th>
+           <th>ADDRESS</th>
+           <th>CONTACT</th>
+           <!-- <th>QUALIFICATION</th> -->
+           <th>ABOUT</th>
+           <th>EMAIL</th>
+           <th colspan="2">PHOTO</th>
+       </tr>
+       {% for d in data %}
+       <tr>
+           <td>{{d.0}}</td>
+           <td>{{d.1}}</td>
+           <td>{{d.2}}</td>
+           <td>{{d.7}}</td>
+           <td>{{d.3}}</td>
+           
+           <td><img src="../static{{d.4}}" height="100px" width="100px"></td>
+           <!-- <td>{{d.5}}</td>
+           <td><img src="../static{{d.6}}" height="100px" width="100px"></td> -->
+           <td><a href="/customerpassplan?id={{d.3}}" style="color:blue">Select designer</a></td>
+           
+       </tr>
+       {% endfor %}
+   </table>
+   
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

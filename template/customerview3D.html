@@ -1,0 +1,24 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+th{
+    background-color: lightseagreen;
+    color: white;
+}
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Design request</h1>
+    
+    <video style="height: 150px; width:150px; margin-top: 50px;" autoplay="autoplay" controls="controls">
+        <source src="../static{{video}}" type="video/mp4">
+    </video>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

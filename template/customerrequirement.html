@@ -1,0 +1,148 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Requirement</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table style="margin: 50px;" >
+        
+        <tr>
+            <td>Number of bedroom</td>
+            <td><input type="text"  class="form-control"  name="txtBed" required pattern="[0-9]{1}"></td>
+        </tr>
+        <tr>
+            <td>Number of bathroom</td>
+            <td><input type="text"  class="form-control"  name="txtBath" required pattern="[0-9]{1}"></td>
+        </tr>
+        <tr>
+            <td>Number of attached bathroom</td>
+            <td><input type="text"  class="form-control"  name="txtAttached" required pattern="[0-9]{1}"></td>
+        </tr>
+        <tr>
+            <td>Do you need carporch</td>
+            <td>
+                <input type="radio"   name="txtCar" value="Yes">Yes
+                <input type="radio" required checked name="txtCar" value="No">No
+            </td>
+        </tr>
+        <tr>
+            <td>Number of kitchen</td>
+            <td><input type="text"  class="form-control"  name="txtKitchen" required pattern="[0-9]{1}"></td>
+        </tr>
+        <tr>
+            <td>Do you need sitout</td>
+            <td>
+                <input type="radio"   name="txtSitout" value="Yes">Yes
+                <input type="radio" required checked  name="txtSitout" value="No">No
+            </td>
+        </tr>
+        <tr>
+            <td>Do you need work area</td>
+            <td>
+                <input type="radio"   name="txtWork" value="Yes">Yes
+                <input type="radio"  required checked name="txtWork" value="No">No
+            </td>
+        </tr>
+        <tr>
+            <td>Number of floor</td>
+            <td><input type="text"  class="form-control"  name="txtFloor" required pattern="[0-9]{1}"></td>
+        </tr>
+        <tr>
+            <td>Area in sqft</td>
+            <td><input type="text"  class="form-control"  name="txtSqft" required pattern="[0-9]{3,5}"></td>
+        </tr>
+        <tr>
+            <td>Other requirements</td>
+            <td><textarea name="txtOther" class="form-control"  required></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-primary" value="Submit"></td>
+        </tr>
+    </table>
+    </form>
+<center><h1> New Requirements</h1></center>
+
+    <table id="customers"  border='1' style="margin-top: 50px;">
+    <tr>
+        <th>ID</th>
+        <th>BEDROOM</th>
+        <th>BATHROOM</th>
+        <th>ATTACHED</th>
+        <th>CARPORCH</th>
+        <th>KITCHEN</th>
+        <th>SITOUT</th>
+        <th>WORKAREA</th>
+        <th>FLOOR</th>
+        <th>AREA(in sqft)</th>
+        <th>OTHERS</th>
+        <th>DATE</th>
+        <th colspan="2">STATUS</th><th>EDITp</th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.0}}</td>
+        <td>{{d.2}}</td>
+        <td>{{d.3}}</td>
+        <td>{{d.4}}</td>
+        <td>{{d.5}}</td>
+        <td>{{d.6}}</td>
+        <td>{{d.7}}</td>
+        <td>{{d.8}}</td>
+        <td>{{d.9}}</td>
+        <td>{{d.10}}</td>
+        <td>{{d.11}}</td>
+        <td>{{d.12}}</td>
+        <td>{{d.13}}</td>
+        <td><a style="color: blue;" href="/assignarchitect?reqid={{d.0}}">Assign Architect</a></td>
+        <td><a style="color: blue;" href="/editreq?reqid={{d.0}}">Edit Requirement</a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+
+
+<center><h1> Previous Requirements</h1></center>
+    <table id="customers" border='1' id="customers" >
+        <tr>
+            <th>ID</th>
+            <th>BEDROOM</th>
+            <th>BATHROOM</th>
+            <th>ATTACHED</th>
+            <th>CARPORCH</th>
+            <th>KITCHEN</th>
+            <th>SITOUT</th>
+            <th>WORKAREA</th>
+            <th>FLOOR</th>
+            <th>AREA(in sqft)</th>
+            <th>OTHERS</th>
+            <th>DATE</th>
+            <th colspan="2">STATUS</th>
+        </tr>
+        {% for d in data1 %}
+        <tr>
+            <td>{{d.0}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td>{{d.4}}</td>
+            <td>{{d.5}}</td>
+            <td>{{d.6}}</td>
+            <td>{{d.7}}</td>
+            <td>{{d.8}}</td>
+            <td>{{d.9}}</td>
+            <td>{{d.10}}</td>
+            <td>{{d.11}}</td>
+            <td>{{d.12}}</td>
+            <td>{{d.13}}</td>
+            <!-- <td><a style="color: blue;" href="/assignarchitect?reqid={{d.0}}">Assign Architect</a></td> -->
+        </tr>
+        {% endfor %}
+        </table>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}
